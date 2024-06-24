@@ -7,7 +7,6 @@
 	@EntryPoint()
 	operation QB4Run () : Unit
     {
-	
 		mutable num0000 = 0;
 		mutable num0001 = 0;
 		mutable num0010 = 0;
@@ -25,9 +24,9 @@
 		mutable num1110 = 0;
 		mutable num1111 = 0;
 
-		using (qubits = Qubit[4])
+		use qubits = Qubit[4]
 		{
-			for (test in 1..10000)
+			for test in 1..10000
 			{
 				Set (Zero, qubits[0]);
 				Set (Zero, qubits[1]);
@@ -111,8 +110,6 @@
 				if(res3 == One  and res2 == One  and res1 == Zero and res0 == One ){set num1101 = num1101 + 1;}
 				if(res3 == One  and res2 == One  and res1 == One  and res0 == Zero){set num1110 = num1110 + 1;}
 				if(res3 == One  and res2 == One  and res1 == One  and res0 == One ){set num1111 = num1111 + 1;}
-				
-				
 			}
 			Set(Zero, qubits[0]);
 			Set(Zero, qubits[1]);
